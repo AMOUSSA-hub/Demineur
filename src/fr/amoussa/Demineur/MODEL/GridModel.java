@@ -50,7 +50,7 @@ public class GridModel implements Serializable{
             if(!checkBomb(tirage_X, tirage_Y) && tirage_X != pos_safe_X && tirage_Y!= pos_safe_Y ){
                 tab_partie[tirage_Y][tirage_X] = 1;
                 bombe_a_placer--;
-               // g.getCase(tirage_X,tirage_Y).setIcon(Icone.bomb); MODE TRICHE
+                g.getCase(tirage_X,tirage_Y).setIcon(Icone.bomb);// MODE TRICHE
 
 
             }
@@ -67,7 +67,7 @@ public class GridModel implements Serializable{
 
     //vérification de la case en haut-gauche.
      if( x-1>= 0 && x-1<= nbr_colonne-1 && y-1>= 0 && y-1<= nbr_ligne-1 ){
-        if(g.getCase(x-1, y-1).getStatus() == 0){
+        if(tab_partie[y-1][x-1] != 0){
             if(checkBomb(x-1,y-1) ){
                 bomb_close++;
             }
@@ -79,7 +79,7 @@ public class GridModel implements Serializable{
 
      //vérification de la case en haut.
      if(x>= 0 &&x<= nbr_colonne-1 && y-1>= 0 && y-1<= nbr_ligne-1){
-        if(g.getCase(x, y-1).getStatus() == 0){
+        if(tab_partie[y-1][x] != 0){
         if(checkBomb(x,y-1)){
             bomb_close++;
         }
@@ -91,7 +91,7 @@ public class GridModel implements Serializable{
         
     //vérification de la case en haut-droite.
     if(x+1>= 0 &&x+1<= nbr_colonne-1 && y-1>= 0 &&y-1<= nbr_ligne-1){
-        if(g.getCase(x+1, y-1).getStatus() == 0){
+        if(tab_partie[y-1][x+1] != 0){
         if(checkBomb(x+1,y-1)){
             bomb_close++;
         }
@@ -103,7 +103,7 @@ public class GridModel implements Serializable{
 
     //vérification de la case à droite.
     if(x+1>= 0 &&x+1<= nbr_colonne-1 && y>= 0 &&y<= nbr_ligne-1){
-        if(g.getCase(x+1, y).getStatus() == 0){
+        if(tab_partie[y][x+1] != 0){
             if(checkBomb(x+1,y)){
                 bomb_close++;
             }
@@ -115,7 +115,7 @@ public class GridModel implements Serializable{
 
    //vérification de la case à gauche.
    if(x-1>= 0 &&x-1<= nbr_colonne-1 && y>= 0 &&y<= nbr_ligne-1){
-    if(g.getCase(x-1, y).getStatus() == 0){
+    if(tab_partie[y][x-1] != 0){
             if(checkBomb(x-1,y)){
                 bomb_close++;
             }
@@ -127,7 +127,7 @@ public class GridModel implements Serializable{
 
     //vérification de la case en bas-gauche.
     if(x-1>= 0 &&x-1<= nbr_colonne-1 && y+1>= 0 &&y+1<= nbr_ligne-1){
-        if(g.getCase(x-1, y+1).getStatus() == 0){
+        if(tab_partie[y+1][x-1] != 0){
             if(checkBomb(x-1,y+1)){
                 bomb_close++;
             }
@@ -139,7 +139,7 @@ public class GridModel implements Serializable{
      
     //vérification de la case en bas.
     if(x>= 0 &&x<= nbr_colonne-1 && y+1>= 0 &&y+1<= nbr_ligne-1){
-        if(g.getCase(x, y+1).getStatus() == 0){
+        if(tab_partie[y+1][x] != 0){
             if(checkBomb(x,y+1)){
                 bomb_close++;
             }
@@ -151,7 +151,7 @@ public class GridModel implements Serializable{
     
     //vérification de la case en bas-droite.
     if(x+1>= 0 &&x+1<= nbr_colonne-1 && y+1>= 0 &&y+1<= nbr_ligne-1){
-        if(g.getCase(x+1, y+1).getStatus() == 0){
+        if(tab_partie[y+1][x+1] != 0){
             if(checkBomb(x+1,y+1)){
                 bomb_close++;
             }
@@ -173,7 +173,7 @@ public class GridModel implements Serializable{
             unHideCase(x, y);
              currenCase.markNumber(bomb_close);
          }
-        
+         System.out.println("x: "+x+" y: "+y+" bombes autour: "+bomb_close);
          return bomb_close;
      }
 
