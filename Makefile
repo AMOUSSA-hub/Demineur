@@ -15,7 +15,7 @@ BUILD = build/fr/amoussa/Demineur
 DOC = doc/fr/amoussa/Demineur
 BUILD_WINDOWS = "build/fr/amoussa/Demineur/"
 # CHOIX NOMS
-JAR_FILE =  Demineur.jar
+JAR_FILE =  Demineur.jar  
 
 
 
