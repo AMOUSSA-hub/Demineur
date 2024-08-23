@@ -50,7 +50,7 @@ public class GridModel implements Serializable{
             if(!checkBomb(tirage_X, tirage_Y) && tirage_X != pos_safe_X && tirage_Y!= pos_safe_Y ){
                 tab_partie[tirage_Y][tirage_X] = 1;
                 bombe_a_placer--;
-                g.getCase(tirage_X,tirage_Y).setIcon(Icone.bomb);// MODE TRICHE
+                //g.getCase(tirage_X,tirage_Y).setIcon(Icone.bomb); MODE TRICHE
 
 
             }
