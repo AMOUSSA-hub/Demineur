@@ -1,2 +1,2 @@
 # Démineur
- Jeu du démineur avec option de sauvegarde de partie
+ Jeu du démineur avec option de sauvegarde de partie.
